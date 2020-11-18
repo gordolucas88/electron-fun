@@ -6,7 +6,7 @@
   "author": "gordolucas88 <lucasrodrigues062@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "electron"
+    "start": "node_modules\\electron\\dist\\electron.exe"
   },
   "private": false,
   "dependencies": {},
