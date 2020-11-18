@@ -1,0 +1,17 @@
+{
+  "name": "electron-fun",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/gordolucas88/electron-fun",
+  "author": "gordolucas88 <lucasrodrigues062@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron"
+  },
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^11.0.1",
+    "eslint": "^7.13.0"
+  }
+}
