@@ -1,5 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require("electron");
 const data = require('./data.js');
+const templateGenerator = require('./template.js');
+
+let tray = null;
 
 // Variavel app é responsavel pelo ciclo de vida da aplicação
 
@@ -14,6 +17,11 @@ app.on("ready", () => {
     width: 600,
     height: 400,
   });
+  tray = new Tray(__dirname + '/app/img/icon-tray.png');
+  let template = templateGenerator.geraTray();
+  let trayMenu = Menu.buildFromTemplate(template);
+
+  tray.setContextMenu(trayMenu);
   //Carregando um site externo ou url ao abrir o aplicativo
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 });

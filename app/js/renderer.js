@@ -12,7 +12,7 @@ window.onload = () => {
     data.pegaDados(curso.textContent)
         .then((dados) => {
             tempo.textContent = dados.tempo
-            console.log(dados)
+           
         })
 
 }

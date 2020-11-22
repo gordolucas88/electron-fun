@@ -1,7 +1,7 @@
 const jsonfile = require("jsonfile-promised");
 const fs = require("fs");
 
-module.exports = { criaArquivoJson, salvaDados,adionaTempoAoCurso, pegaDados };
+module.exports = { criaArquivoJson, salvaDados,adionaTempoAoCurso, pegaDados, listarCursos };
 
 function criaArquivoJson(nomeArquivo, conteudoArquivo) {
   return jsonfile
@@ -45,4 +45,14 @@ function pegaDados(curso) {
   let arquivoDoCurso = __dirname + "/data/" + curso + ".json"
   return jsonfile.readFile(arquivoDoCurso)
     
+}
+
+function listarCursos(){
+
+  let arquivos = fs.readdirSync(__dirname + '/data/')
+  let cursos =  arquivos.map((arquivo) => {
+    return arquivo.substr(0, arquivo.lastIndexOf('.'))
+  })
+  console.log(cursos)
+  return cursos
 }
