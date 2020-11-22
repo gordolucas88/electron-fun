@@ -1,7 +1,7 @@
 const jsonfile = require("jsonfile-promised");
 const fs = require("fs");
 
-module.exports = { criaArquivoJson, salvaDados,adionaTempoAoCurso };
+module.exports = { criaArquivoJson, salvaDados,adionaTempoAoCurso, pegaDados };
 
 function criaArquivoJson(nomeArquivo, conteudoArquivo) {
   return jsonfile
@@ -39,4 +39,10 @@ function adionaTempoAoCurso(arquivoDoCurso, tempoEstudado) {
     .catch((error) => {
       console.log(error);
     });
+}
+
+function pegaDados(curso) {
+  let arquivoDoCurso = __dirname + "/data/" + curso + ".json"
+  return jsonfile.readFile(arquivoDoCurso)
+    
 }
