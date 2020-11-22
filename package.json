@@ -9,7 +9,10 @@
     "start": "node_modules\\electron\\dist\\electron.exe"
   },
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "jsonfile-promised": "^0.0.1",
+    "moment": "^2.29.1"
+  },
   "devDependencies": {
     "electron": "^11.0.1",
     "eslint": "^7.13.0"

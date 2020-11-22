@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
+const data = require('./data.js');
 
 // Variavel app é responsavel pelo ciclo de vida da aplicação
 
@@ -24,7 +25,7 @@ app.on("window-all-closed", () => {
 
 let aboutWindow = null;
 
-ipcMain.on("open-about-window", () => {
+ipcMain.on("abrir-janela-sobre", () => {
   if (aboutWindow === null) {
     aboutWindow = new BrowserWindow({
       webPreferences: {
@@ -42,10 +43,16 @@ ipcMain.on("open-about-window", () => {
       aboutWindow = null
     })
 
-    aboutWindow.loadURL(`file://${__dirname}/app/about.html`);
+    aboutWindow.loadURL(`file://${__dirname}/app/sobre.html`);
   }
 });
 
-ipcMain.on('close-about-window', () => {
+ipcMain.on('fechar-janela-sobre', () => {
   aboutWindow.close();
+});
+
+ipcMain.on('curso-parado', (event,curso,tempoEstudado) =>{
+  data.salvaDados(curso, tempoEstudado)
+
+
 });
